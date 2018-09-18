@@ -25,7 +25,7 @@ module.exports = {
       `http://${host}:${port}`
   },
   head: {
-    title: "tt1",
+    title: "Hase Chimera",
     meta: [
       { charset: "utf-8" },
       {
@@ -54,8 +54,14 @@ module.exports = {
   /*
   ** Build configuration
   */
-  css: ["~/assets/css/main.css"],
-  build: {},
+  css: ["~/assets/scss/main.scss"],
+  build: {
+    postcss: [
+      require('autoprefixer')({
+        browsers: ['> 5%']
+      })
+    ]
+  },
   modules: [
     "@nuxtjs/axios",
     "~/modules/typescript.js"
