@@ -25,7 +25,7 @@ module.exports = {
       `http://${host}:${port}`
   },
   head: {
-    title: "Hase Chimera",
+    title: "mikomikomikomikomiko",
     meta: [
       { charset: "utf-8" },
       {
