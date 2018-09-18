@@ -55,13 +55,7 @@ module.exports = {
   ** Build configuration
   */
   css: ["~/assets/scss/main.scss"],
-  build: {
-    postcss: [
-      require('autoprefixer')({
-        browsers: ['> 5%']
-      })
-    ]
-  },
+  build: {},
   modules: [
     "@nuxtjs/axios",
     "~/modules/typescript.js"
