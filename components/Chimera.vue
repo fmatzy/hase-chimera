@@ -47,14 +47,8 @@ export default class Chimera extends Vue {
 </script>
 <style lang="scss" scoped>
 .chimera {
-  width: 220px;
-  height: 220px;
   transition: top 0.3s, left 0.3s;
 
-  & img {
-    width: 100%;
-    height: 100%;
-  }
   &.touched {
     animation: fluffy 0.7s linear 0s 1;
   }
