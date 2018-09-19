@@ -58,7 +58,10 @@ module.exports = {
   build: {},
   modules: [
     "@nuxtjs/axios",
-    "~/modules/typescript.js"
+    "~/modules/typescript.js",
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-117437753-2'
+    }]
   ],
   axios: {}
 }
