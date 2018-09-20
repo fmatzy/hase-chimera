@@ -32,5 +32,6 @@ export default class ChimeraField extends Vue {
   position: fixed;
   width: 100%;
   height: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 </style>
