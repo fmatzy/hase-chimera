@@ -50,7 +50,7 @@ export default class Chimera extends Vue {
 
     this.audio.play();
     this.touched = true;
-    setTimeout(() => { this.touched = false }, 1010);
+    setTimeout(() => { this.touched = false }, 1100);
   }
 
 }
