@@ -2,7 +2,7 @@
   <div :style="position" class="chimera" :class="{touched: touched, inverse: inverse}"
     @click.stop="touch">
     <img ref="img" :src="imgSrc">
-    <audio ref="audio" :src="audioSrc" preload="true"/>
+    <audio ref="audio" :src="audioSrc" preload="auto"/>
   </div>
 </template>
 <script lang="ts">
