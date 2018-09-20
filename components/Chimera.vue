@@ -2,6 +2,7 @@
   <div :style="position" class="chimera" :class="{touched: touched, inverse: inverse}"
     @click.stop="touch">
     <img ref="img" :src="imgSrc">
+    <audio ref="audio" :src="audioSrc" preload="true"/>
   </div>
 </template>
 <script lang="ts">
@@ -20,7 +21,6 @@ export default class Chimera extends Vue {
   readonly imgSize: {width: number, height: number} = {width: 160, height: 160};
 
   readonly audioSrc = require("~/assets/hase_chimera.mp3");
-  readonly audio: HTMLAudioElement = new Audio(this.audioSrc);
   
   touched: boolean = false;
   inverse: boolean = false;
@@ -48,7 +48,7 @@ export default class Chimera extends Vue {
   touch(): void {
     if (this.touched) return;
 
-    this.audio.play();
+    (this.$refs.audio as HTMLAudioElement).play();
     this.touched = true;
     setTimeout(() => { this.touched = false }, 1100);
   }
