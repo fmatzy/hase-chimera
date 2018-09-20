@@ -55,7 +55,16 @@ module.exports = {
   ** Build configuration
   */
   css: ["~/assets/scss/main.scss"],
-  build: {},
+  build: {
+    extend (config, { isDev, isClient }) {
+      if (isDev && isClient) {
+        config.module.rules.push({
+          test: /\.(ogg|mp3|wav)$/,
+          loader: 'file-loader'
+        })
+      }
+    },
+  },
   modules: [
     "@nuxtjs/axios",
     "~/modules/typescript.js",

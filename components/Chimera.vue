@@ -1,7 +1,7 @@
 <template>
   <div :style="position" class="chimera" :class="{touched: touched, inverse: inverse}"
     @click.stop="touch">
-    <img src="~/assets/hase_chimera.png">
+    <img ref="img" :src="imgSrc">
   </div>
 </template>
 <script lang="ts">
@@ -16,22 +16,23 @@ import { setTimeout, setInterval } from "timers";
 export default class Chimera extends Vue {
   @Prop() chimera: {x: number, y:number};
 
+  readonly imgSrc = require("~/assets/hase_chimera.png");
+  readonly imgSize: {width: number, height: number} = {width: 160, height: 160};
+
+  readonly audioSrc = require("~/assets/pikachu.mp3");
+  readonly audio: HTMLAudioElement = new Audio(this.audioSrc);
+  
   touched: boolean = false;
   inverse: boolean = false;
 
-  touch(): void {
-    if (this.touched) return;
-
-    this.touched = true;
-    setTimeout(() => { this.touched = false }, 700);
-  }
   get position() {
     return {
-      top: (this.chimera.y - 100) + 'px',
-      left: (this.chimera.x - 100) + 'px',
+      top: (this.chimera.y - this.imgSize.height / 2) + 'px',
+      left: (this.chimera.x - this.imgSize.width / 2) + 'px',
       position: "absolute",
     }
   }
+
   mounted(): void {
     setInterval(() => {
       const getDelta = () => Math.floor(Math.random() * 100) - 50;
@@ -43,11 +44,22 @@ export default class Chimera extends Vue {
       this.inverse = (deltaX > 0);
     },300);
   }
+
+  touch(): void {
+    if (this.touched) return;
+
+    this.audio.play();
+    this.touched = true;
+    setTimeout(() => { this.touched = false }, 1010);
+  }
+
 }
 </script>
 <style lang="scss" scoped>
 .chimera {
   transition: top 0.3s, left 0.3s;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
 
   &.touched {
     animation: fluffy 0.7s linear 0s 1;
