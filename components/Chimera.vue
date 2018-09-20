@@ -19,7 +19,7 @@ export default class Chimera extends Vue {
   readonly imgSrc = require("~/assets/hase_chimera.png");
   readonly imgSize: {width: number, height: number} = {width: 160, height: 160};
 
-  readonly audioSrc = require("~/assets/pikachu.mp3");
+  readonly audioSrc = require("~/assets/hase_chimera.mp3");
   readonly audio: HTMLAudioElement = new Audio(this.audioSrc);
   
   touched: boolean = false;
