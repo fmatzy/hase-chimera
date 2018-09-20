@@ -56,13 +56,11 @@ module.exports = {
   */
   css: ["~/assets/scss/main.scss"],
   build: {
-    extend (config, { isDev, isClient }) {
-      if (isDev && isClient) {
-        config.module.rules.push({
-          test: /\.(ogg|mp3|wav)$/,
-          loader: 'file-loader'
-        })
-      }
+    extend (config, {}) {
+      config.module.rules.push({
+        test: /\.(ogg|mp3|wav)$/,
+        loader: 'file-loader'
+      })
     },
   },
   modules: [
