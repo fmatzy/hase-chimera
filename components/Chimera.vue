@@ -1,3 +1,9 @@
+<!--
+  Portions are:
+  Copyright (c) 2016 ICS INC.
+  Released under MIT License
+  https://github.com/ics-creative/160311_css3_animation/blob/master/LICENSE
+-->
 <template>
   <div :style="position" class="chimera" :class="{touched: touched, inverse: inverse}"
     @click.stop="touch">
